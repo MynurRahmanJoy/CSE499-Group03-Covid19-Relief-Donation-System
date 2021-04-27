@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login and Registration Form Design</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+ <section>
+    <div id="loginnav">
+     <nav class="navbar navbar-expand-lg px4">
+        <a href="#"class="navbar-brand">
+            <span class="font-weight-bold text-uppercase logo">
+                Life Shield
+            </span>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navBar">
+            <span class="toggler-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </button>
+        <div id="n" class="collapse navbar-collapse" id="navBar">
+            <ul class="navbar-nav text-capitalize mx-auto">
+                <li class="nav-item">
+                    <a href="home.html" class="nav-link">home</a>
+                </li>
+                <li class="nav-item">
+                   <a href="#" class="nav-link">About</a>
+               </li>
+               <li class="nav-item">
+                   <a href="#" class="nav-link">Resources</a>
+               </li>
+               <li class="nav-item">
+                   <a href="#" class="nav-link">Services</a>
+               </li>
+               
+            </ul>
+        </div>
+        <div class="nav-info-items d-none d-lg-flex">
+          <!-- single info -->
+          <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+            <span class="info-icon mx-lg-3">
+              <i class="fab fa-whatsapp-square fa-2x app"></i>
+            </span>
+            <p class="mb-0">+8801*******68 </p>
+          </div>
+          <!-- single info -->
+          </div>
+    </nav>
+ </div>
+</section>
+    <div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="user name"/>
+            <input type="text" placeholder="password"/>
+            <input type="text" placeholder="email id"/>
+            <button>Create</button>
+            <p class="message">Already Registered? <a href="#">Login</a>
+            </p>
+        </form>
+
+        <form class="login-form">
+            <input type="text" placeholder="user name"/>
+            <input type="text" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not Registered? <a href="#">Register</a></p>
+        </form>
+
+    </div>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'>
+    </script>
+    <script>
+        $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    </script>
+    
+</body>
+</html>

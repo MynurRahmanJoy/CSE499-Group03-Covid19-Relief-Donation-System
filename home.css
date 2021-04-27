@@ -1,0 +1,325 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Amaranth', sans-serif;
+}
+
+/*===Nav Links===*/
+.logo{
+  color: #04a5f0;
+}
+
+.navbar-toggler{
+  outline: none!important;
+}
+
+.toggler-icon{
+  font-size: 30px;
+  color: #04a5f0;
+}
+
+.nav-link{
+  color: #04a5f0;
+  transition: all 1s ease-in-out;
+  font-size:  20px;
+}
+
+.nav-link:hover{
+  color: #000;
+  /*font-weight: bold;*/
+}
+
+.app{
+  color: rgb(9, 228, 9);
+}
+.nav-info{
+  font-size: 20px;
+  color: rgba(71, 68, 68, 0.829);
+}
+#n{
+  margin-left: 10%;
+}
+/*===End of Navbar===*/
+
+/*===Login Section===*/
+#login{
+  width: 100%;
+  height: 70vh;
+  background: linear-gradient(rgb(5,195,243,0.5),rgb(236,9,198,0.5)), url("./images/covid_relief.png");
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin-bottom: -120px;
+}
+
+#login:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#login .container {
+  z-index: 2;
+}
+#login h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#login h2 {
+  color: #eee;
+  margin-bottom: 50px;
+  font-size: 24px;
+}
+
+#login .btn-start {
+  text-transform: uppercase;
+   font-weight: 500;
+   font-size: 14px;
+   letter-spacing: 1px;
+   display: inline-block;
+   padding: 10px 28px;
+   transition: 0.5s;
+   margin-top: 10px;
+   border: 2px solid #fff;
+   color: #fff;
+ }
+#login .btn-start:hover {
+   background: #04a5f0;
+   border: 2px solid #04a5f0;
+   text-decoration: none;
+ }
+
+/*===End of Login Section===*/
+
+
+
+/*===Card Section==*/
+
+  .shortinfo {
+    padding: 0 0 30px 0;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .shortinfo .icon-boxes .icon-box {
+    text-align: center;
+    border-radius: 10px;
+    background: #04a5f0;
+    padding: 75px 30px;
+    width: 100%;
+  }
+  
+  .shortinfo .icon-boxes .icon-box i {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .shortinfo .icon-boxes .icon-box h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+  }
+  
+  .shortinfo .icon-boxes .icon-box p {
+    font-size: 15px;
+    color: #fff;
+  }
+
+/*===End of Card Section===*/
+
+
+/*==Footer Bottom==*/
+#footer-bottom {
+  background-color: #71c8f0;
+  padding: 30px 0px;
+  margin-top: 60px;
+}
+
+#footer-copyrights p {
+  margin: 0;
+  color: #000;
+  font-weight:600;
+}
+
+#footer-menu {
+  float: left;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#footer-menu ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#footer-menu ul li {
+  display: inline-block;
+}
+
+#footer-menu a {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.contact{
+  margin-top: 5%;
+  font-style: bold;
+  font-weight: 600;
+}
+
+#contact-left{
+  margin-top: 5%;
+}
+
+/*==End of Footer Bottom==*/
+
+/*==Story==*/
+#str{
+  margin-top: 1%;
+  
+} 
+#st{
+  border-radius: 5px;
+}
+#story{
+  margin-left: 5%;
+  margin-top: 2%;
+  
+}
+
+#button{
+  margin-top: 2%;
+  margin-left: 33%;
+}
+#button {
+  margin-top: 30%;
+  margin-left: 90%;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #04a5f0;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+#button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+}
+
+#button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+/*==Story==*/
+
+/*==SOCIAL==*/
+.social-list {
+  padding-left: 0;
+}    
+
+.social-list li {
+  list-style: none;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.social-icon i {
+  font-size: 35px;
+}
+
+.icon-whiteyt i {
+  color: #e02424;
+}
+.icon-whitefb i {
+  color: #385898;
+}
+.icon-whitetw i {
+  color: #1d9bf0;
+}
+
+.social-icon i:hover {
+  color: #34c6d3;
+}
+.btn-send {
+  font-style: bold;
+  font-weight: 600;
+  background-color: #04a5f0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+ }
+.btn-send:hover {
+   background: #04a5f0;
+   border: 2px solid #04a5f0;
+   text-decoration: none;
+   color:#fff;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
