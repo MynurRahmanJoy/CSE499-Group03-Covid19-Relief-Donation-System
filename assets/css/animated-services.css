@@ -67,3 +67,49 @@
   color: #fff;
 }
 
+
+
+/*===Nav Links===*/
+.logo{
+  color: #04a5f0;
+}
+
+.navbar-toggler{
+  outline: none!important;
+}
+
+.toggler-icon{
+  font-size: 30px;
+  color: #04a5f0;
+}
+
+.nav-link{
+  color: #04a5f0;
+  transition: all 1s ease-in-out;
+  font-size:  20px;
+}
+
+.nav-link:hover{
+  color: #000;
+  /*font-weight: bold;*/
+}
+
+.app{
+  color: rgb(9, 228, 9);
+}
+.nav-info{
+  font-size: 20px;
+  color: rgba(71, 68, 68, 0.829);
+}
+
+#n{
+  background-color: #ffffff;
+  margin-left: 10%;
+}
+#bc{
+  background-color: #ffffff;
+}
+
+/*===End of Navbar===*/
+
+
