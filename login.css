@@ -39,10 +39,10 @@ body{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #4caf50;
+    background-color: #04a5f0;
     width: 100%;
     border: 0;
-    padding: 15px;
+    padding: 10px;
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
@@ -60,7 +60,7 @@ body{
 }
 
 .form .message a{
-    color: #4caf50;
+    color: aliceblue;
     text-decoration: none;
 }
 
@@ -107,6 +107,13 @@ body{
   }
   #n{
     margin-left: 10%;
+  }
+  #logb{
+    margin-top: 2%;
+  }
+
+  #googlelogincolor{
+     color: #ffffff;
   }
 
 

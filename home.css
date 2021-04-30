@@ -85,7 +85,8 @@ body{
 }
 
 #login .btn-start {
-  text-transform: uppercase;
+   text-transform: uppercase;
+   background-color:transparent;
    font-weight: 500;
    font-size: 14px;
    letter-spacing: 1px;
@@ -96,10 +97,12 @@ body{
    border: 2px solid #fff;
    color: #fff;
  }
+
+
 #login .btn-start:hover {
    background: #04a5f0;
    border: 2px solid #04a5f0;
-   text-decoration: none;
+   text-decoration: black;
  }
 
 /*===End of Login Section===*/
