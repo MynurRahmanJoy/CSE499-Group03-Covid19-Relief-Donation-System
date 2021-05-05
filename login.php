@@ -1,6 +1,6 @@
 <?php 
 
-    //index.php
+    //login.php
     
     //Include Configuration File
     include('config.php');
@@ -73,6 +73,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login / Sign Up </title>
     <link rel="stylesheet" href="login.css">
+    <link rel='stylesheet' type='text/css' href='css/loginstyle.php' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
@@ -84,7 +85,6 @@
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- 
 </head>
 
 
@@ -130,7 +130,7 @@
  </div>
 </section>
     <div class="login-page">
-    <div class="form">
+     <div class="form">
         <form class="register-form">
             <input type="text" placeholder="User Name"/>
             <input type="text" placeholder="Password"/>
@@ -145,38 +145,44 @@
             <input type="text" placeholder="User Name"/>
             <input type="text" placeholder="Password"/>
             <button>login</button>
-            <?php
-            if(!isset($_SESSION['access_token']))
-            {
-             $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
-            }
-            ?>
-            <p class="message"> <b>Not Registered?</b><a href="#">Register</a></p>
+            <div id=lgb> 
+             <?php
+             if(!isset($_SESSION['access_token']))
+             {
+             $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google';
+             }
+             ?>
+             <br>
+             <div class="container">
+              <div class="panel panel-default">
+              <?php 
+                if($login_button == '')
+                {
+                 echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
+                 echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
+                 echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
+                 echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
+                 echo '<h3><a href="logout.php">Logout</h3></div>';
+                }
+               else
+                {
+                 echo '<div align="center">'.$login_button . '</div>';
+                }
+               ?>
+              </div> 
+             </div>
+            </div>
+            <p class="message"> <b>Not Registered?</b> <a href="#">Register</a></p>
         </form>
         
+        
 
+     </div>
     </div>
-    </div>
+    
 
 
-   <div class="container">
-   <div class="panel panel-default">
-   <?php 
-   if($login_button == '')
-   {
-    echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-    echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-    echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-    echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-    echo '<h3><a href="logout.php">Logout</h3></div>';
-   }
-   else
-   {
-    echo '<div align="center">'.$login_button . '</div>';
-   }
-   ?>
-   </div> 
-  </div>
+   
 
 
 
