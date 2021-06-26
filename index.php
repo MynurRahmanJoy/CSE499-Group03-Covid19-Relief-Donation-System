@@ -1,104 +1,106 @@
-<?php 
-
-//index.php
-
-//Include Configuration File
-include('config.php');
-
-$login_button = '';
-
-
-if(isset($_GET["code"]))
-{
-
- $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
-
-
- if(!isset($token['error']))
- {
- 
-  $google_client->setAccessToken($token['access_token']);
-
- 
-  $_SESSION['access_token'] = $token['access_token'];
-
-
-
-  $google_service = new Google_Service_Oauth2($google_client);
-
- 
-  $data = $google_service->userinfo->get();
-
- 
-  if(!empty($data['given_name']))
-  {
-   $_SESSION['user_first_name'] = $data['given_name'];
-  }
-
-  if(!empty($data['family_name']))
-  {
-   $_SESSION['user_last_name'] = $data['family_name'];
-  }
-
-  if(!empty($data['email']))
-  {
-   $_SESSION['user_email_address'] = $data['email'];
-  }
-
-  if(!empty($data['gender']))
-  {
-   $_SESSION['user_gender'] = $data['gender'];
-  }
-
-  if(!empty($data['picture']))
-  {
-   $_SESSION['user_image'] = $data['picture'];
-  }
- }
-}
-
-
-if(!isset($_SESSION['access_token']))
-{
- $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
-}
-
-?>
+<!DOCTYPE html>
 <html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>PHP Login using Google Account</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<head>
+<title>Index</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Slide Login Form template Responsive, Login form web template, Flat Pricing tables, Flat Drop downs Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- 
- </head>
- <body>
-  <div class="container">
-   <br />
-   <h2 align="center">Login using Google Account</h2>
-   <br />
-   <div class="panel panel-default">
-   <?php 
-   if($login_button == '')
-   {
-    echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-    echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-    echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-    echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-    echo '<h3><a href="logout.php">Logout</h3></div>';
-   }
-   else
-   {
-    echo '<div align="center">'.$login_button . '</div>';
-   }
-   ?>
-   </div> 
-  </div>
- </body>
+	 <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+	<!-- Custom Theme files -->
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Custom Theme files -->
+
+	<!-- web font -->
+	<link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+	<!-- //web font -->
+
+</head>
+<body>
+
+<!-- main -->
+<div class="w3layouts-main"> 
+	<div class="bg-layer">
+		<h1 style="color: white;text-shadow: 1px 1px 8px black;">Login here..</h1>
+		<div class="header-main">
+			<div class="main-icon">
+				<span class="fa fa-eercast"></span>
+			</div>
+			<div class="header-left-bottom">
+				<form action="#" method="post">		
+					<div class="icon1">
+						<span class="fa fa-user"></span>
+						<input type="email" placeholder="Email Address" name="email"  required=""/>
+					</div>
+					<div class="icon1">
+						<span class="fa fa-lock"></span>
+						<input type="password" placeholder="Password" name="password" required=""/>
+					</div>
+			       
+					<div class="bottom">
+						<button class="btn" type="submit" name="submit">Log In</button>
+					</div>
+					<div class="links">
+						<p class="right"><a href="admin/AdminLogin.php">Admin..? Login Here</a></p>
+						<div class="clear"></div>
+					</div>
+				</form>	
+			</div>
+		</div>
+		
+	</div>
+</div>	
+<!-- //main -->
+
+<?php
+          session_start();
+	      require 'Classes/init.php';
+          $func = new Operation();
+         
+	
+     if(isset($_POST['submit']))
+        {     
+        
+                $invalidErr="";
+               $email = $_POST["email"]; 
+               $password = $_POST["password"];
+               $status=1;
+           
+               //$sql = "SELECT * FROM user WHERE user_email = '".$email."' AND  user_password = '".$password."' AND  user_status = '1'";
+              
+                $result = $func->select_with_multiple_condition(array('*'),'user',"user_email = '".$email."'",'AND',"user_status = '".$status."'");
+               while($row = $result->fetch_assoc())
+                {
+                   $myId=$row["user_id"];
+                }
+             
+              session_regenerate_id();
+              $_SESSION['user_id']=$myId;
+              session_write_close();
+        
+                 if ($result->num_rows > 0 )
+                {                  
+                   header("location: user/UserHome.php");
+                }
+           
+               else
+               {
+                $message="Invalid Username or Password..!! Or Blocked By Admin";
+                 echo "<script type='text/javascript'>alert('$message');</script>"; 
+                }          
+}
+?>
+
+</body>
 </html>
