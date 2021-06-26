@@ -64,22 +64,18 @@
     }
 
 
-
-
     //db connection
     include('config/db_connect.php');
 
 
     //form validation
-    $userName=$pass=$active='';
-    $errors = array('userName'=>'','pass'=>'');
-    $row = array('active'=>'');
+    $userName=$mob=$addres=$email=$pass='';
+    $errors = array('userName'=>'','mob'=>'','addres'=>'','email'=>'','pass'=>'');
 
+    if(isset($_POST['create'])){
 
-    if(isset($_POST['login'])){
-
-       //check username
-       if(empty($_POST['userName'])){
+    //check username
+      if(empty($_POST['userName'])){
         $errors['userName'] = "Warning : User name is required ";
     }
     else{
@@ -93,41 +89,86 @@
 
     // check password
     if(empty($_POST['pass'])){
-        $errors['pass'] = 'Warning : Password is required';
-        } 
-        else{
-        $pass = $_POST['pass'];
-        if(!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $pass)) {
-            // tell the user something went wrong
-            $errors['pass'] = 'Warning : Password must be a minimum of 8 characters,at least 1 number,at least 1 uppercase and lowercase character';
-          }
-    
+    $errors['pass'] = 'Warning : Password is required';
+    } 
+    else{
+    $pass = $_POST['pass'];
+    if(!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $pass)) {
+        // tell the user something went wrong
+        $errors['pass'] = 'Warning : Password must be a minimum of 8 characters,at least 1 number,at least 1 uppercase and lowercase character';
+      }
+
+    }
+    //check email
+    if(empty($_POST['email'])){
+        $errors['email'] = 'Warning : Email is required';
+    }
+    else{
+        $email = $_POST['email'];
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors['email'] = 'Warning : Email must be a valid email address';
         }
+        //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
+        
+    }
+
+    //check address
+    if(empty($_POST['addres'])){
+        $errors['addres'] = "Warning : Address is required ";
+    }
+    else{
+        $addres = $_POST['addres'];
+        if(!preg_match('/^[A-Za-z0-9\.\-\s\,]+$/', $addres)){
+            $errors['addres'] = 'Warning : Address must contain letters and numbers only';
+        }
+        //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
+        
+    }
+
+
+    //check mobile
+    if(empty($_POST['mob'])){
+        $errors['mob'] = 'Warning : Mobile number is required';
+    }
+    else{
+        $mob = $_POST['mob'];
+        if(!preg_match('/^[0-9]+$/', $mob)){
+            $errors['mob'] = 'Warning : Must be 11 digit mobile number';
+        }
+        //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
+        
+    }
+
+
+    if(array_filter($errors)){
+        //echo 'Errors in form';
+    } else {
+        $userName = mysqli_real_escape_string($conn,$_POST['userName']);
+        $mob = mysqli_real_escape_string($conn,$_POST['mob']);
+        $addres = mysqli_real_escape_string($conn,$_POST['addres']);
+        $email = mysqli_real_escape_string($conn,$_POST['email']);
+        $pass = mysqli_real_escape_string($conn,$_POST['pass']);
+     
+        //create sql
+        $sql="INSERT INTO create_account (User_Name,Mobile_Number,Current_Address,Email_ID,Password) VALUES ('$userName','$mob','$addres','$email','$pass')";
+        
+        //save to db to check
+        if(mysqli_query($conn,$sql)){
+            //success
+            header('Location: login.php');
+        } else{
+            //error
+            echo 'query error: '.mysqli_error($conn);
         }
 
-        if(array_filter($errors)){
-            //echo 'Errors in form';
-        } else {
-            if(isset($_POST['userName'])){
-    
-                $userName=$_POST['userName'];
-                $pass=$_POST['pass'];
-                
-                $sql="select * from create_account where User_Name='".$userName."'AND Password='".$pass."' limit 1";
-                
-                $result=mysqli_query($conn,$sql);
-                
-                if(mysqli_num_rows($result)==1){
-                    echo " You Have Successfully Logged in";
-                    exit();
-                }
-                else{
-                    echo " You Have Entered Incorrect Password";
-                    exit();
-                }
-                    
-            }
-        }
+    }
+
+
+
+
+
+
+    }
 
 
     
@@ -145,8 +186,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css">
     <link rel='stylesheet' type='text/css' href='css/loginstyle.php' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
@@ -205,21 +246,41 @@
 </section>
     <div class="login-page">
      <div class="form">
-
-        <form action="login.php" class="login-form" method="POST">
+        <form action="signup.php" class="register-form" method="POST">
             <!--User name-->
             <input type="text" name="userName"  placeholder="User Name" value="<?php echo htmlspecialchars ($userName) ?>">
-            <div class="warning_text"><?php echo $errors['userName']; ?></div>
-
-
+            <div class="error_text"><?php echo $errors['userName']; ?></div>
+            
+            <!--Mobile Number-->
+            <input type="text" name="mob"  placeholder="Mobile Number" value="<?php echo htmlspecialchars ($mob) ?>">
+            <div class="error_text"><?php echo $errors['mob']; ?></div>
+           
+            <!--ressress-->
+            <input type="text" name="addres"  placeholder="Current Address" value="<?php echo htmlspecialchars ($addres) ?>">
+            <div class="error_text"><?php echo $errors['addres']; ?></div>
+            
+            <!--Email ID-->
+            <input type="text" name="email"  placeholder="Email ID" value="<?php echo htmlspecialchars ($email) ?>">
+            <div class="error_text"><?php echo $errors['email']; ?></div>
+            
             <!--Password-->
             <input type="password" name="pass"  placeholder="Password" value="<?php echo htmlspecialchars ($pass) ?>">
-            <div class="warning_text"><?php echo $errors['pass']; ?></div>
-
-
+            <div class="error_text"><?php echo $errors['pass']; ?></div>
+            
+            
             <div class="center">
-            <button type="submit" name="login" value="login">Login</button>
+            <button type="submit" name="create" value="create">Create</button>
             </div>
+            <!--<button>Create</button>-->
+            <p class="message"> <b> Already Registered?</b> <a href="login.php">Login</a>
+            </p>
+            
+        </form>
+
+        <!--<form class="login-form">
+            <input type="text" placeholder="User Name"/>
+            <input type="text" placeholder="Password"/>
+            <button>login</button>
             <div id=lgb> 
              <?php
              if(!isset($_SESSION['access_token']))
@@ -248,7 +309,7 @@
              </div>
             </div>
             <p class="message"> <b>Not Registered?</b> <a href="signup.php">Register</a></p>
-        </form>
+        </form>-->
         
         
 

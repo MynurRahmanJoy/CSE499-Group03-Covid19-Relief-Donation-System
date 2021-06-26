@@ -1,119 +1,120 @@
 body{
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(images/login.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(images/login.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 
 }
 
 .login-page{
-    width: 360px;
-    padding: 10% 0 0;
-    margin: auto;
+  width: 360px;
+  padding: 6% 0 0;
+  margin: auto;
 }
 
 .form{
-    position: relative;
-    z-index: l;
-    background: rgba(7, 40, 195, 0.8);
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center;
+  position: relative;
+  z-index: l;
+  background: rgba(7, 40, 195, 0.8);
+  max-width: 360px;
+  margin: 800 auto 100px;
+  padding: 45px;
+  text-align: center;
 
 }
 
 .form input{
-    font-family: "Roboto" , sans-serif;
-    outline: 1;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
+  font-family: "Roboto" , sans-serif;
+  outline: 1;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 .form button{
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background-color: #04a5f0;
-    width: 100%;
-    border: 0;
-    padding: 10px;
-    color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #04a5f0;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .form button:hover, .form button:active{
-    background: #4caf50;
-    
+  background: #4caf50;
+  
 }
 
 .form .message{
-    margin: 15px 0 0;
-    color: aliceblue;
-    font-size: 12px;
+  margin: 10px 0 0;
+  color: aliceblue;
+  font-size: 12px;
 }
 
 .form .message a{
-    color: aliceblue;
-    text-decoration: none;
+  color: aliceblue;
+  text-decoration: none;
 }
 
-.form .register-form{
-    display: none;
+.error_text{
+  color: white;
+  font-weight: bold;
 }
 
 /*===Nav Links===*/
 .logo{
-    color: #04a5f0;
-  }
-  
-  .navbar-toggler{
-    outline: none!important;
-  }
-  
-  .toggler-icon{
-    font-size: 30px;
-    color: #04a5f0;
-  }
-  
-  .nav-link{
-    color: #04a5f0;
-    transition: all 1s ease-in-out;
-    font-size:  20px;
-  }
-  
-  .nav-link:hover{
-    color: #000;
-    /*font-weight: bold;*/
-  }
-  
-  .app{
-    color: rgb(9, 228, 9);
-  }
-  .nav-info{
-    font-size: 20px;
-    color: rgba(71, 68, 68, 0.829);
-  }
-  /*===End of Navbar===*/
+  color: #04a5f0;
+}
 
-  #loginnav{
-      background-color: #ffffff;
-  }
-  #n{
-    margin-left: 10%;
-  }
-  #logb{
-    margin-top: 2%;
-  }
+.navbar-toggler{
+  outline: none!important;
+}
 
-  #googlelogincolor{
-     color: #ffffff;
-  }
+.toggler-icon{
+  font-size: 30px;
+  color: #04a5f0;
+}
+
+.nav-link{
+  color: #04a5f0;
+  transition: all 1s ease-in-out;
+  font-size:  20px;
+}
+
+.nav-link:hover{
+  color: #000;
+  /*font-weight: bold;*/
+}
+
+.app{
+  color: rgb(9, 228, 9);
+}
+.nav-info{
+  font-size: 20px;
+  color: rgba(71, 68, 68, 0.829);
+}
+/*===End of Navbar===*/
+
+#loginnav{
+    background-color: #ffffff;
+}
+#n{
+  margin-left: 10%;
+}
+#logb{
+  margin-top: 2%;
+}
+
+#googlelogincolor{
+   color: #ffffff;
+}
 
 
