@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(images/login.jpg);
+    background-image: linear-gradient(rgba(201,5,158,0.65),rgba(0,0,0,0.6)), url(images/login.jpg);
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -9,6 +9,7 @@ body{
 .login-page{
     width: 360px;
     padding: 6% 0 0;
+    padding-top: 55px;
     margin: auto;
 }
 
@@ -18,7 +19,9 @@ body{
     background: rgba(7, 40, 195, 0.8);
     max-width: 360px;
     margin: 800 auto 100px;
-    padding: 45px;
+    padding: 26px;
+    padding-bottom: 18px;
+    padding-top: 31px;
     text-align: center;
 
 }
@@ -67,6 +70,7 @@ body{
 .error_text{
     color: rgb(250, 29, 29);
     font-weight: bold;
+    padding-bottom: 6px;
 }
 
 .btnsignup{

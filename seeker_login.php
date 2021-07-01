@@ -212,12 +212,12 @@
         <form action="login.php" class="login-form" method="POST">
             <!--User name-->
             <input type="text" name="userName"  placeholder="User Name" value="<?php echo htmlspecialchars ($userName) ?>">
-            <div class="warning_text" style="color:#fb0000;font-weight:bold;"><?php echo $errors['userName']; ?></div>
+            <div class="warning_text"><?php echo $errors['userName']; ?></div>
 
 
             <!--Password-->
             <input type="password" name="pass"  placeholder="Password" value="<?php echo htmlspecialchars ($pass) ?>">
-            <div class="warning_text" style="color:#fb0000;font-weight:bold;"><?php echo $errors['pass']; ?></div>
+            <div class="warning_text"><?php echo $errors['pass']; ?></div>
 
 
             <div class="center">
