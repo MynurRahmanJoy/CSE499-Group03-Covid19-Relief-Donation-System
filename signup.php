@@ -67,13 +67,10 @@
     //db connection
     include('config/db_connect.php');
 
-    // Initialize message variable
-     $msg = "";
-
 
     //form validation
-    $userName=$mob=$addres=$email=$pass=$created_at=$image='';
-    $errors = array('userName'=>'','mob'=>'','addres'=>'','email'=>'','pass'=>'','created_at'=>'','image'=>'');
+    $userName=$mob=$addres=$email=$pass=$created_at='';
+    $errors = array('userName'=>'','mob'=>'','addres'=>'','email'=>'','pass'=>'','created_at'=>'');
 
     if(isset($_POST['create'])){
 
@@ -141,16 +138,6 @@
         //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
         
     }
-
-    //check image
-    if(empty($_POST['image'])){
-        $errors['image'] = 'Warning : Image is required';
-    }
-    else{
-        $image = $_POST['image'];
-        //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
-        
-    }
     
 
 
@@ -162,22 +149,9 @@
         $addres = mysqli_real_escape_string($conn,$_POST['addres']);
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $pass = mysqli_real_escape_string($conn,$_POST['pass']);
-        $image = mysqli_real_escape_string($conn,$_POST['image']);
      
         //create sql
-        $sql="INSERT INTO create_account (User_Name,Mobile_Number,Current_Address,Email_ID,Password,image) VALUES ('$userName','$mob','$addres','$email','$pass','$image')";
-
-        // Get image name
-  	    $image = $_FILES['image'];
-
-  	    // image file directory
-  	    $target = "images/".basename($image);
-
-        if (move_uploaded_file($_FILES['image'], $target)) {
-            $msg = "Image uploaded successfully";
-        }else{
-            $msg = "Failed to upload image";
-        }
+        $sql="INSERT INTO create_account (User_Name,Mobile_Number,Current_Address,Email_ID,Password) VALUES ('$userName','$mob','$addres','$email','$pass')";
         
 
         //save to db to check
