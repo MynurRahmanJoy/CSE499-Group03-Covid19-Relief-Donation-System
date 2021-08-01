@@ -114,14 +114,14 @@
                 $pass=$_POST['pass'];
 
                 
-                $sql="select * from create_account where User_Name='".$userName."'AND Password='".$pass."' limit 1";
+                $sql="select * from create_seeker_account where User_Name='".$userName."'AND Password='".$pass."' limit 1";
                 
                 $result=mysqli_query($conn,$sql);
                 
                 if(mysqli_num_rows($result)==1){
                     $_SESSION["userName"]=$userName;
                     $_SESSION["pass"]=$pass;
-                    header('location:donor_profile.php');
+                    header('location:seeker_profile.php');
                     exit();
                 }
                 else{
@@ -149,7 +149,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="seeker_login.css">
     <link rel='stylesheet' type='text/css' href='css/loginstyle.php' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
@@ -209,7 +209,7 @@
     <div class="login-page">
      <div class="form">
 
-        <form action="login.php" class="login-form" method="POST">
+        <form action="seeker_login.php" class="login-form" method="POST">
             <!--User name-->
             <input type="text" name="userName"  placeholder="User Name" value="<?php echo htmlspecialchars ($userName) ?>">
             <div class="warning_text"><?php echo $errors['userName']; ?></div>
@@ -250,7 +250,7 @@
               </div> 
              </div>
             </div>
-            <p class="message"> <b>Not Registered?</b> <a href="signup.php">Register</a></p>
+            <p class="message"> <b>Not Registered?</b> <a href="seeker_signup.php">Register</a></p>
         </form>
         
         

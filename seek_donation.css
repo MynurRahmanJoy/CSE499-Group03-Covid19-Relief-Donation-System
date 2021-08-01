@@ -1,0 +1,227 @@
+body{
+    background-image: linear-gradient(rgba(201,5,158,0.63),rgba(0,0,0,0.7)), url(images/login.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    
+  
+  }
+  
+  
+  
+  /*===Nav Links===*/
+  .logo{
+    color: #04a5f0;
+  }
+  
+  .navbar-toggler{
+    outline: none!important;
+  }
+  
+  .toggler-icon{
+    font-size: 30px;
+    color: #04a5f0;
+  }
+  
+  .nav-link{
+    color: #04a5f0;
+    transition: all 1s ease-in-out;
+    font-size:  20px;
+  }
+  
+  .nav-link:hover{
+    color: #000;
+    /*font-weight: bold;*/
+  }
+  
+  .app{
+    color: rgb(9, 228, 9);
+  }
+  .nav-info{
+    font-size: 20px;
+    color: rgba(71, 68, 68, 0.829);
+  }
+  /*===End of Navbar===*/
+  
+  #loginnav{
+      background-color: #ffffff;
+  }
+  #n{
+    margin-left: 10%;
+  }
+  #logb{
+    margin-top: 2%;
+  }
+  
+  #googlelogincolor{
+     color: #ffffff;
+  }
+  
+  .warning_text {
+    padding-bottom: 9px;
+  }
+
+
+.container{
+  background-color: rgb(255, 255, 255);
+  max-width: 650px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  margin-top: 70px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  
+}
+
+.container{
+    max-width: 650px;
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #04a5f0);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(60% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #04a5f0;
+}
+ form .stype-details .stype-title{
+  font-size: 20px;
+  font-weight: 500;
+ }
+ form .family_member-details .familymember-title{
+  font-size: 20px;
+  font-weight: 500;
+ }
+ span.family_member-title {
+  font-weight: 500;
+}
+ form .category{
+   display: flex;
+   width: 47%;
+   margin: 14px 0 ;
+   justify-content: space-evenly;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #04a5f0;
+   border-color: #d9d9d9;
+ }
+ #dot-4:checked ~ .category label .four,
+ #dot-5:checked ~ .category label .five,
+ #dot-6:checked ~ .category label .six{
+   background: #04a5f0;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 45px;
+   margin: 35px 0;
+ }
+ form .button input{
+   height: 100%;
+   width: 99%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #39abec, #04a5f0);
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #71b7e6, #04a5f0);
+  }
+
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 99%;
+  }
+  form .category{
+    width: 60%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  .container {
+      max-width: fit-content;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -142,15 +142,8 @@
         
     }
 
-    //check image
-    if(empty($_POST['image'])){
-        $errors['image'] = 'Warning : Image is required';
-    }
-    else{
-        $image = $_POST['image'];
-        //echo htmlspecialchars($_POST['email']); //htmlspecialchars is used for security so that others can not do anything to our website's form fields
-        
-    }
+     
+    
     
 
 
@@ -162,28 +155,17 @@
         $addres = mysqli_real_escape_string($conn,$_POST['addres']);
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $pass = mysqli_real_escape_string($conn,$_POST['pass']);
-        $image = mysqli_real_escape_string($conn,$_POST['image']);
      
         //create sql
-        $sql="INSERT INTO create_account (User_Name,Mobile_Number,Current_Address,Email_ID,Password,image) VALUES ('$userName','$mob','$addres','$email','$pass','$image')";
+        $sql="INSERT INTO create_seeker_account (User_Name,Mobile_Number,Current_Address,Email_ID,Password) VALUES ('$userName','$mob','$addres','$email','$pass')";
 
-        // Get image name
-  	    $image = $_FILES['image'];
 
-  	    // image file directory
-  	    $target = "images/".basename($image);
-
-        if (move_uploaded_file($_FILES['image'], $target)) {
-            $msg = "Image uploaded successfully";
-        }else{
-            $msg = "Failed to upload image";
-        }
         
 
         //save to db to check
         if(mysqli_query($conn,$sql)){
             //success
-            header('Location: login.php');
+            header('Location:seeker_login.php');
         } else{
             //error
             echo 'query error: '.mysqli_error($conn);
@@ -277,7 +259,7 @@
 </section>
     <div class="login-page">
      <div class="form">
-        <form action="signup.php" class="register-form" method="POST">
+        <form action="seeker_signup.php" class="register-form" method="POST">
             <!--User name-->
             <input type="text" name="userName"  placeholder="User Name" value="<?php echo htmlspecialchars ($userName) ?>">
             <div class="error_text"><?php echo $errors['userName']; ?></div>
@@ -303,7 +285,7 @@
             <button type="submit" name="create" value="create">Create</button>
             </div>
             <!--<button>Create</button>-->
-            <p class="message"> <b> Already Registered?</b> <a href="login.php">Login</a>
+            <p class="message"> <b> Already Registered?</b> <a href="seeker_login.php">Login</a>
             </p>
             
         </form>

@@ -4,16 +4,19 @@ session_start();
 
 //db connection
 include('config/db_connect.php');
+//echo("Hello Joy");
 
+//echo $_SESSION["userName"];
+//echo $_SESSION["pass"];
 
 
 ?>
-
+<!--<a href="logout.php">Logout</a>-->
 
 <?php
 $userName=$_SESSION["userName"];
 //echo $userName;
-$query="select * from create_account where User_Name='".$userName."'limit 1";
+$query="select * from create_seeker_account where User_Name='".$userName."'limit 1";
 $result=mysqli_query($conn,$query);
 $row=mysqli_fetch_array($result);
 //print_r($row);
@@ -29,7 +32,7 @@ $row=mysqli_fetch_array($result);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>User Profile</title>
-    <link rel="stylesheet" href="donor_profile.css">
+    <link rel="stylesheet" href="seeker_profile.css">
     <link rel='stylesheet' type='text/css' href='css/loginstyle.php' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
@@ -102,8 +105,8 @@ $row=mysqli_fetch_array($result);
 		<div id="container">
             
             <div id="space"></div>
-            <div class="info" style="margin-top:0px;padding-bottom:177px;">
-				<p id="profile">DONOR PROFILE</p>
+            <div class="info" style="padding-bottom:166px;">
+				<p id="profile">SEEKER PROFILE</p>
                 <p id="name">Name : <?php echo $_SESSION["userName"]; ?></p>
                 <p id="add">Current Address : <?php echo $row["Current_Address"]; ?></p>
 				<p id="email">Email : <?php echo $row["Email_ID"]; ?></p>
@@ -112,10 +115,10 @@ $row=mysqli_fetch_array($result);
             </div>
             <div id="middle" style="margin-top:0px; margin-bottom:0px; margin-left:122px; margin-right:122px">
                 <button type="button" class="block">
-				<a class="blctxt" href="make_donation.php" style="text-decoration:none; color:white;font-size:17px;">Give Donation</a>
+				<a class="blctxt" href="seek_donation.php" style="text-decoration:none; color:white;font-size:17px;">Seek Donation</a>
 				</button>
             </div>
-            
+
             <hr>
             
             <div id="bodyText">

@@ -11,6 +11,6 @@ $google_client->revokeToken();
 session_destroy();
 
 //redirect page to login.php
-header('location:login.php');
+header('location:home.html');
 
 ?>

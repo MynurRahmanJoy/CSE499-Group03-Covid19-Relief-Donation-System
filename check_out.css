@@ -379,49 +379,24 @@ img{
   width: 300px;
   height: 140px;
 }
-
-
-.middle{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
+form .button{
+  height: 45px;
+  margin: 35px 0;
 }
-
-.btn{
-  background: none;
-  border: 2px solid #000;
-  font-family: "montserrat",sans-serif;
-  text-transform: uppercase;
-  min-width: 200px;
-  margin: 10px;
-  cursor: pointer;
-  transition: color 0.4s linear;
-  position: relative;
-}
-
-.btn:hover{
-  color: #fff;
-}
-
-.btn::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+form .button input{
   height: 100%;
-  background: #000;
-  z-index: -1;
-  transition: transform 0.5s;
-  transform-origin:0 0;
-  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+  width: 99%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #39abec, #04a5f0);
 }
-
-.btn1::before{
-  transform: scaleX(0);
-}
-.btn1:hover::before{
-  transform: scaleX(1);
-}
+form .button input:hover{
+ /* transform: scale(0.99); */
+ background: linear-gradient(-135deg, #71b7e6, #04a5f0);
+ }
